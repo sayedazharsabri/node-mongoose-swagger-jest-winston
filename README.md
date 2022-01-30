@@ -9,6 +9,7 @@ Step 1: Run below command to install all the packages
 ### To run using nodemon
 
 Step 1: Create a mongoDB database and add mongoDB connection string to nodemon.json -> MONGODB_CONNECTION_STRING
+
 Step 2: Run below command to start the server on localhost
         
         yarn start:dev
