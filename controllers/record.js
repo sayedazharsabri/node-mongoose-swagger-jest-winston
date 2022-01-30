@@ -24,7 +24,7 @@ const getRecords = async (req, res) => {
         const endDate = new Date(req.body.endDate).toISOString();
         const minCount = req.body.minCount;
         const maxCount = req.body.maxCount;
-        const data = await RecordModel.aggregate([{ $match: { $and: [{ createdAt: { $lte: new Date(endDate) } }, { createdAt: { $gte: new Date(startDate) } }] } }, { $unwind: "$counts" }, { $project: { _id: 1, counts: 1, key: 1, createdAt: 1 } }, { $group: { _id: "$_id", key: { $first: "$key" }, createdAt: { $first: "$createdAt" }, totalScore: { $sum: "$counts" } } }, { $match: { $and: [{ totalScore: { $gt: minCount } }, { totalScore: { $lt: maxCount } }] } }, { $project: { _id: 0, totalScore: 1, key: 1, createdAt: 1 } }]);
+        const data = await RecordModel.aggregate([{ $match: { $and: [{ createdAt: { $lte: new Date(endDate) } }, { createdAt: { $gte: new Date(startDate) } }] } }, { $unwind: "$counts" }, { $project: { _id: 1, counts: 1, key: 1, createdAt: 1 } }, { $group: { _id: "$_id", key: { $first: "$key" }, createdAt: { $first: "$createdAt" }, totalCount: { $sum: "$counts" } } }, { $match: { $and: [{ totalCount: { $gt: minCount } }, { totalCount: { $lt: maxCount } }] } }, { $project: { _id: 0, totalCount: 1, key: 1, createdAt: 1 } }]);
         const response = {
             "code": 0,
             "msg": "Success",
