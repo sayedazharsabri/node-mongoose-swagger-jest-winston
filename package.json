@@ -1,0 +1,28 @@
+{
+  "name": "getir",
+  "version": "1.0.0",
+  "description": "This is a project",
+  "main": "app.js",
+  "author": "Sayed Azhar Sabri",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js",
+    "start:dev": "nodemon app.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-validator": "^6.14.0",
+    "moment": "^2.29.1",
+    "mongodb": "^4.3.1",
+    "mongoose": "^6.1.8",
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.3.0",
+    "winston": "^3.5.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,90 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Blah",
+		"description": "",
+		"version": "1.0"
+	},
+	"produces": [
+		"application/json"
+	],
+	"paths": {
+		"/data/fetch": {
+			"post": {
+				"x-swagger-router-controller": "home",
+				"operationId": "index",
+				"tags": [
+					"/data/fetch"
+				],
+				"description": "To fetch records with filter",
+				"required": [
+					"startDate",
+					"endDate",
+					"minCount",
+					"maxCount"
+				],
+				"parameters": [
+					{
+						"name": "Fetch Data",
+						"in": "body",
+						"type": "object",
+						"tags": {
+							"startDate": {
+								"type": "string"
+							}
+						},
+						"example": {
+							"startDate": "2015-01-29",
+							"endDate": "2019-01-29",
+							"minCount": 100,
+							"maxCount": 3000
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Records fetched successfully",
+						"schema": {
+						  "$ref": "#/definitions/FetchedRecords"
+						}
+					  }
+				}
+			}
+		}
+	},
+	"definitions": {
+		"FetchedRecords": {
+		  "required": ["code", "msg", "records"],
+		  "properties": {
+			"code": {
+			  "type": "integer",
+			  "example":"0"
+			},
+			"msg": {
+			  "type": "string",
+			  "example":"Success"
+			},
+			"records": {
+			  "type": "array",
+			  "items": {
+				"type": "object",
+				"properties": {
+				  "key": {
+					"type": "abced",
+					"example":"Success"
+				  },
+				  "createdAt": {
+					"type": "string",
+					"example":"2018-01-28T01:22:14.398Z"
+				  },
+				  "totalScore":{
+					  "type":"number",
+					  "example":1399
+				  }
+				}
+			  }
+			}
+		  }
+		}
+	  }
+}
